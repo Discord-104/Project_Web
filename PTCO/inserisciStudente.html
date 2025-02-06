@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserisci Studente</title>
+    <script src="JS/Studente.js"></script>
+    <script src="JS/Comune.js"></script>
+    <script src="JS/InserimentoStudente.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <h1>Inserisci Studente</h1>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required><br>
+        
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" required><br>
+
+        <label for="born">Data di Nascita:</label>
+        <input type="date" id="born" required><br>
+
+        <label for="classe">Classe:</label>
+        <input type="text" id="classe" required><br>
+
+        <label for="autoMotoMunito">Auto/Moto Munito:</label>
+        <input type="checkbox" id="autoMotoMunito"><br>
+
+        <label for="accompagnato">Accompagnato:</label>
+        <input type="checkbox" id="accompagnato"><br>
+
+        <label for="maxDistanza">Distanza Massima (KM):</label>
+        <input type="number" id="maxDistanza" required><br>
+
+        <label for="lat">Latitudine:</label>
+        <input type="number" step="any" id="lat" required><br>
+
+        <label for="lon">Longitudine:</label>
+        <input type="number" step="any" id="lon" required><br>
+
+        <button type="button" id="submitStudente">Inserisci Studente</button>
+</body>
+</html>

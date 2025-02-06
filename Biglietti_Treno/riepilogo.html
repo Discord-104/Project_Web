@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona partenza e destinazione</title>
+    <script src="js/Citta.js"></script>
+    <script>
+        let tempo=20;
+        let bigliettoCompleto;
+        document.addEventListener("DOMContentLoaded",function(){
+
+            let c = document.getElementById("container");
+
+            bigliettoCompleto =localStorage.getItem("bigliettoTmp");
+            if (bigliettoCompleto==undefined)
+            {
+                //non sono stati settati i dati precedenti! 
+                //torno indietro
+                window.location.href="index.html";
+            }
+            else{
+                bigliettoCompleto = JSON.parse(bigliettoCompleto);
+            }
+
+
+            c.innerHTML+="Nome: "+bigliettoCompleto.nome;
+            c.innerHTML+="<br>";
+            c.innerHTML+="Cognome: "+bigliettoCompleto.cognome;
+            c.innerHTML+="<br>";
+            c.innerHTML+="Partenza: "+bigliettoCompleto.partenza;
+            c.innerHTML+="<br>";
+            c.innerHTML+="Destinazione: "+bigliettoCompleto.destinazione;
+            c.innerHTML+="<br>";
+            c.innerHTML+="Data partenza: "+new Date(bigliettoCompleto.data).toLocaleDateString();
+
+            updateTimer();
+
+            setInterval(function(){
+                tempo--;
+                if( tempo==0)
+                {
+                    localStorage.removeItem("bigliettoTmp")
+                    window.location.href="index.html";
+                }
+                updateTimer();
+            },1000);
+        });
+        
+
+        function updateTimer(){
+            document.getElementById("timer").innerText=tempo+"s";
+        }
+
+
+
+
+
+        function conferma(){
+
+            let Biglietti =localStorage.getItem("Biglietti");
+            if (Biglietti==undefined)
+            {
+                Biglietti=[];
+            }
+            else{
+                Biglietti = JSON.parse(Biglietti);
+            }
+            
+            Biglietti.push(bigliettoCompleto);
+            localStorage.setItem("Biglietti",JSON.stringify(Biglietti));
+            localStorage.removeItem("bigliettoTmp")
+            window.location.href="index.html";
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="timer"></div><br>
+    <div id="container"></div>
+    <button onclick="conferma()">conferma</button>
+</body>
+</html>

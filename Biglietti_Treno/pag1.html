@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserisci Nome e Cognome</title>
+    <script src="js/Biglietto.js"></script>
+    <script>
+        function conferma(){
+            let nome = document.getElementById("nome").value;
+            let cognome = document.getElementById("cognome").value;
+
+            let regex=/^[A-Z][a-z]{2}[a-z]*$/
+            if( !regex.test(nome) ) 
+            {
+                alert("nome non corretto");
+            }
+            else if( !regex.test(cognome) ) 
+            {
+                alert("cognome non corretto");
+            }
+            else{
+                let oldBiglietto =localStorage.getItem("bigliettoTmp");
+                if (oldBiglietto==undefined)
+                {
+                    oldBiglietto= new Biglietto();
+                }
+                else{
+                    oldBiglietto = JSON.parse(oldBiglietto);
+                }
+                
+                oldBiglietto.nome=nome;
+                oldBiglietto.cognome=cognome;
+                localStorage.setItem("bigliettoTmp",JSON.stringify(oldBiglietto));
+                window.location.href="pag2.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    Nome: <input type="text" id="nome"><br>
+    Cognome: <input type="text" id="cognome"><br>
+    <button onclick="conferma()">conferma</button>
+</body>
+</html>

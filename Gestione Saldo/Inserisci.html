@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="JS/Salvadanaio.js"></script>
+    <script src="JS/Comune.js"></script>
+    <script src="JS/Inserisci.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Inserisci Transazione</title>
+</head>
+<body>
+    <h1>Inserisci Transazione</h1>
+        <label>
+            <input type="radio" name="tipo" value="versamento" checked>
+            Versamento
+        </label>
+        <label>
+            <input type="radio" name="tipo" value="prelievo">
+            Prelievo
+        </label><br><br>
+
+        <label for="descrizione">Descrizione:</label><br>
+        <textarea id="descrizione" required></textarea><br><br>
+
+        <label for="importo">Importo (€):</label><br>
+        <input type="number" id="importo" required><br><br>
+
+        <label for="data">Data:</label><br>
+        <input type="date" id="data"><br><br>
+
+        <button type="submit">Salva</button>
+    <p id="errore" class="error"></p>
+</body>
+</html>

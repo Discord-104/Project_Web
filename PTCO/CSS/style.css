@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color: black;
+}
+
+ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: whitesmoke;
+}
+
+tbody tr.red {
+    background-color: red;
+}
+
+.red {
+    background-color: red;
+}

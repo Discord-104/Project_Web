@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona partenza e destinazione</title>
+    <script src="js/Citta.js"></script>
+    <script>
+       
+        document.addEventListener("DOMContentLoaded",function(){
+            let Biglietti =localStorage.getItem("Biglietti");
+            if (Biglietti==undefined)
+            {
+                Biglietti=[];
+            }
+            else{
+                Biglietti = JSON.parse(Biglietti);
+            }
+            
+            let tab = document.getElementById("container");
+            for (const biglietto of Biglietti) {
+                let tr =document.createElement("tr");
+
+                let td = document.createElement("td");
+                td.innerHTML=biglietto.nome;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML=biglietto.cognome;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML=biglietto.partenza;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML=biglietto.destinazione;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML=biglietto.data;
+                tr.appendChild(td);
+
+
+                tab.appendChild(tr);
+            }
+        });
+        
+
+
+
+
+     
+    </script>
+</head>
+<body>
+
+    <table id="container">
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Cognome
+            </th>
+            <th>
+                Partenza
+            </th>
+            <th>
+                Destinazione
+            </th>
+            <th>
+                Data
+            </th>
+        </tr>
+
+    </table>
+</body>
+</html>

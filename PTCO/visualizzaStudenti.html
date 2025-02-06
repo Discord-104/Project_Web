@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizza Studenti</title>
+    <script src="JS/Studente.js"></script>
+    <script src="JS/Azienda.js"></script>
+    <script src="JS/Comune.js"></script>
+    <script src="JS/visualizzaStudenti.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <h1>Visualizza Studenti</h1>
+    <label for="filter">Filtro:</label>
+    <select id="filter">
+        <option value="tutti">Tutti</option>
+        <option value="associati">Solo Associati</option>
+        <option value="nonAssociati">Solo Non Associati</option>
+    </select>
+
+    <table id="studentiTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Classe</th>
+                <th>Azienda Associata</th>
+                <th>Distanza</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</body>
+</html>

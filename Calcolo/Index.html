@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo dell'Interesse Composto</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+   
+    <!-- Titolo della pagina -->
+    <h1>Calcolo dell'Interesse Composto</h1>
+    <!-- Form per i dati -->
+    
+    <form>
+        <!-- Textbox input per il capitale iniziale -->
+        <label for="capital">Capitale iniziale C:</label>
+        <input type="number" id="capital" name="capital" step="0.01" required>
+        <br>
+        <!-- Textbox input per il tasso di interesse -->
+        <label for="interest">Tasso di interesse i (%):</label>
+        <input type="number" id="interest" name="interest" step="0.01" required>
+        <br>
+        <!-- Textbox input per il tempo in anni -->
+        <label for="time">Tempo t (anni):</label>
+        <input type="number" id="time" name="time" step="0.1" required>
+        <br>
+        <!-- Bottone per avviare il calcolo -->
+        <button type="button" onclick="Calcola()">Calcola</button>
+        <br>
+        <br>
+        <!-- visualizza il risultato dell'interesse -->
+        <div class="result" id="interestResult">Interesse I: <input type="text" id="interestValue" readonly></div>
+        <!-- visualizza il risultato del montante -->
+        <div class="result" id="montantResult">Montante M: <input type="text" id="montantValue" readonly></div>
+    </form>
+
+    <script>
+        function Calcola() {
+            // Prende il capitale iniziale inserito dall'utente
+            const capital = document.getElementById("capital").value;
+            // Prende il tasso di interesse inserito dall'utente e lo converte in percentuale
+            const interest = document.getElementById("interest").value / 100;
+            // Prende il tempo inserito dall'utente
+            const time = document.getElementById("time").value;
+
+            // Calcola l'importo dell'interesse
+            const interestValue = capital * interest * time;
+            // Calcola il montante
+            const montantValue = capital * (1 + interest) ** time;
+
+            // Visualizza i risultati nei campi di input di output
+            document.getElementById("interestValue").value = interestValue.toFixed(2);
+            document.getElementById("montantValue").value = montantValue.toFixed(2);
+        }
+    </script>
+</body>
+</html>

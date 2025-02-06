@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/Biglietto.js"></script>
+    <script src="js/Comune.js"></script>
+    <script src="js/Index.js"></script>
+
+</head>
+<body>
+    <div class="posizione">
+        <table>
+            <tr>
+                <td><label for="nome">Nome:</label></td>
+                <td><input type="text" name="text" id="nome"></td>
+            </tr>
+            <tr>
+                <td><label for="cognome">Cognome:</label></td>
+                <td><input type="text" name="text" id="cognome"></td>
+            </tr>
+            <tr>
+                <td><label for="born">Data di nascita</label></td>
+                <td><input type="date" name="date" id="born"></td>
+            </tr>
+            <tr>
+                <td><label for="posti">Scegli una colonna: </label></td>
+                <td>
+                    <select name="posti" id="posti">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                    </select>
+                </tr>
+            <tr>
+                <td><label for="numero">Numero posto: </label></td>
+                <td><input type="number" name="number" id="numero" min="0" max="10"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="checkbox" id="checkbox"></td>
+                <td><label for="checkbox">Accetta termini e condizioni</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="confirmButton">Conferma</button>
+                </td>
+            </tr>
+
+            <input type="date" name="" id="sss">
+            
+        </table>
+    </div>
+</body>
+</html>

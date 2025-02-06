@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona partenza e destinazione</title>
+    <script src="js/Citta.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            popolaSelect(document.getElementById("partenza"));
+            popolaSelect(document.getElementById("destinazione"));
+        });
+
+        function popolaSelect(sel)
+        {
+            for (const Citta of listacitta) {
+                let opt = document.createElement("option");
+                opt.value=Citta;
+                opt.innerText=Citta;
+                sel.appendChild(opt);
+            }
+        }
+
+
+        function conferma(){
+            
+            let partenza = document.getElementById("partenza").value;
+            let destinazione = document.getElementById("destinazione").value;
+
+            if( partenza==destinazione)
+            {
+                alert("scegliere 2 città differenti");
+            }
+            else{
+                let oldBiglietto =localStorage.getItem("bigliettoTmp");
+                if (oldBiglietto==undefined)
+                {
+                    //non sono stati settati i dati precedenti! 
+                    //torno indietro
+                    window.location.href="index.html";
+                }
+                else{
+                    oldBiglietto = JSON.parse(oldBiglietto);
+                }
+                
+                oldBiglietto.partenza=partenza;
+                oldBiglietto.destinazione=destinazione;
+                localStorage.setItem("bigliettoTmp",JSON.stringify(oldBiglietto));
+                window.location.href="pag3.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    Partenza: <select name="" id="partenza"></select><br>
+    Destinazione: <select name="" id="destinazione"></select><br>
+    <button onclick="conferma()">conferma</button>
+</body>
+</html>

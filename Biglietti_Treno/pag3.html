@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleziona partenza e destinazione</title>
+    <script src="js/Citta.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            document.getElementById("dataPartenza").value=new Date().toISOString().split("T")[0];
+        });
+        
+         
+
+
+        function conferma(){
+            
+            let data = document.getElementById("dataPartenza").value;
+            data = new Date(data);
+
+            let domani = new Date();
+            domani.setDate(domani.getDate()+1);
+
+            //altrimenti prendo le ore attuali e non potrei prenotare per domani mattina alle 8:00
+            domani.setHours(0);
+            domani.setMinutes(0);
+
+            let unMese = new Date();
+            unMese.setMonth(unMese.getMonth()+1);
+
+            
+
+            if( domani<=data&& data<unMese)
+            {
+                let oldBiglietto =localStorage.getItem("bigliettoTmp");
+                if (oldBiglietto==undefined)
+                {
+                    //non sono stati settati i dati precedenti! 
+                    //torno indietro
+                    window.location.href="index.html";
+                }
+                else{
+                    oldBiglietto = JSON.parse(oldBiglietto);
+                }
+                
+                oldBiglietto.data=data.toISOString();
+                localStorage.setItem("bigliettoTmp",JSON.stringify(oldBiglietto));
+                window.location.href="riepilogo.html";
+            }
+            else{
+                alert("seleziona tra "+domani.toLocaleDateString()+" e "+unMese.toLocaleDateString());
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    Data partenza: <input type="date" name="" id="dataPartenza">
+    <button onclick="conferma()">conferma</button>
+</body>
+</html>

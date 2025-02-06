@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+}
+label {
+    display: block;
+    width: 45%;
+    margin-bottom: 10px;
+}
+input[type="number"], input[type="text"] {
+    width: 45%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.result {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.content, .box {
+    color: white;
+    text-align: center;
+}
